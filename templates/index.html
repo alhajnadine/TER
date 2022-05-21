@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      
+        <title>Polluscope</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+       
+        <!-- Logo icon -->
+        <link href="{{url_for('static', filename='logo.png')}}" rel="icon">
+  
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+        <!-- Vendor CSS Files -->
+        <link href="static/vendor/aos/aos.css" rel="stylesheet">
+        <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link href="static/style.css" rel="stylesheet">
+     </head>
+<body>
+
+
+ <!-- ======= Header ======= -->
+ <header id="header" class="d-flex align-items-center">
+  <div class="container d-flex align-items-center justify-content-between">
+
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+        
+        
+        <form method="POST" action="{{ url_for('test') }}">
+          <label for="participants" class="participants" style ="margin-left: 50px">Participant ID :</label>
+            <select name= "part_select">
+              {% for participant in participants %}
+              <option value= "{{participant}}" {% if participant == var %} SELECTED {%endif%} >{{ participant }}</option>
+              {% endfor %}
+          </select>
+
+          <label  for="dimensions" class="dimensions" style ="margin-left: 60px">Dimension :</label>
+            <select name="dim_select">
+              {% for dimension in dimensions %}
+              <option value= "{{dimension}}" {% if dimension == select2 %} SELECTED {%endif%}>{{ dimension }}</option>"
+              {% endfor %}
+            </select>
+
+            <label  for="options" class="options" style ="margin-left: 80px">Options:</label>
+            <select name="opt_select">
+              {% for option in options %}
+              <option value= "{{option}}" {% if option == select3 %}SELECTED {%endif%}>{{ option }}</option>"
+              {% endfor %}
+            </select>
+
+
+            <button  type="submit" class="btn btn-default" style="background-color: #7cc576;">Go</button>
+
+
+  
+       
+        
+      </form>
+      </ul>
+    
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+  </div>
+</header><!-- End Header -->
+
+<main id="main">
+
+  <!-- ======= About Us Section ======= -->
+  <section id="about" class="about">
+    <div class="container">
+
+      
+
+      <div class="section-title" data-aos="fade-up">
+        <h2>Dynamic Dashboards Display</h2>
+      </div>
+      
+      <form method="POST" action="{{ url_for('test') }}">
+     <iframe src="http://localhost:3000/d/{{var}}" SELECTED width="100%" height="1000px" frameborder="0">{{var}}</iframe>
+      </form>
+
+    </div>
+  </section><!-- End About Us Section -->
+
+
+  <!--    <a href="/"><img src="{{url_for('static', filename='polluscope.jpg')}}"  class="logo" ></a>
+        <div class="topnav" >
+            <a class="active" href="#home">Home</a>
+          </div>
+        -->  
+<!--
+<h2>Dynamic Dashboards Display</h2>
+
+
+
+
+<form method="POST" action="{{ url_for('test') }}">
+  <label for="participants" class="participants">Participant :</label>
+  <select name= "part_select">
+    {% for participant in participants %}
+    <option value= "{{participant}}" {% if participant == var %} SELECTED {%endif%} >{{ participant }}</option>
+    {% endfor %}
+</select>
+
+
+<label  for="dimensions" class="dimensions">Dimension :</label>
+<select name="dim_select">
+  {% for dimension in dimensions %}
+  <option value= "{{dimension}}" {% if dimension == select2 %} SELECTED {%endif%}>{{ dimension }}</option>"
+  {% endfor %}
+</select>
+
+<label  for="options" class="options">Options:</label>
+<select name="opt_select">
+  {% for option in options %}
+  <option value= "{{option}}" {% if option == select3 %}SELECTED {%endif%}>{{ option }}</option>"
+  {% endfor %}
+</select>
+
+
+
+
+
+  <button id="btn" type="submit" class="btn btn-default">Go</button>
+
+
+<br>
+<br> <br>
+  <iframe src="http://localhost:3000/d/{{var}}" SELECTED width="100%" height="1000px" frameborder="0">{{var}}</iframe>
+</form>-->
+  
+
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/aos/aos.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+  <script src="static/index.js"></script>
+
+
+</body>
+</html>
